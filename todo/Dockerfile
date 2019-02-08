@@ -1,14 +1,13 @@
-FROM openjdk
+FROM gradle:jre11-slim
 
-WORKDIR /java/app
+USER root
 
-VOLUME /tmp
+WORKDIR /app/java
 
-#COPY build/libs/todo-0.0.1-SNAPSHOT.jar .
+COPY . .
 
-COPY build/libs/todo-0.0.1-SNAPSHOT.jar .
+RUN ./gradlew build
 
-#RUN sh -c 'touch build/libs/todo-0.0.1-SNAPSHOT.jar'
+EXPOSE 8080
 
-ENTRYPOINT ["java","-jar","todo-0.0.1-SNAPSHOT.jar","--server.port=8181"]
-
+ENTRYPOINT ["java","-jar","./build/libs/todo.jar"]
