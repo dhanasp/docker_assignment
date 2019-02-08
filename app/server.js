@@ -8,4 +8,10 @@ app.get('/', (req, res) => res.send(
 ));
 
 
+
+app.get('/todos', (req, res) => res.send(
+    
+));
+
+
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
