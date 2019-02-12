@@ -6,7 +6,7 @@ services:
     ports:
     - "3003:3000"
     volumes:
-    - "./app/server.js:/usr/src/app/sever.js"
+    - "./app/server.js:/usr/src/app/server.js"
     environment:
     - PORT=8080
     - DNS_NAME=todoapp
